@@ -1,0 +1,1 @@
+sh $(dirname "$0")/auto_build.sh
