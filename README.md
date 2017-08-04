@@ -16,4 +16,4 @@ gradle自动打包，支持自动上传小米市场，fir。
 http://blog.fir.im/gradle/
 
 # 运行
-build.sh
+MarketTool/build.sh
