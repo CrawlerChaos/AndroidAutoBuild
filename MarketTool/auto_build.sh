@@ -79,7 +79,7 @@ if [ $buildProductRelease = 1 ]; then
 	done
 
 	if [ $uploadfir = 1 ]; then  
-	   echo "Fir Login" 
+	   echo "\nFir Login Please Wait.....\n" 
 	   fir login ${FirToken}
 	   if [  -f "$Product" ]; then
 	    fir publish $Product
