@@ -8,6 +8,8 @@ ProjectDir=$(dirname "$PWD")
 XiaoMiUserName=xxxx
 #上传小米市场密钥
 XiaoMiPrivateKey=xxxx
+#Fir Token
+FirToken=xxxx
 #应用包名
 Package=xxxx
 #应用名称

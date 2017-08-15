@@ -65,7 +65,12 @@ do
 done
 
 if [ $buildProductRelease = 1 ]; then   
-	echo "\n\n----------------\nUpload Fir?\n1.Yes\n2.No\n----------------\n"
+
+	echo "\n---------------------------\nGenerate Apk Please Wait\n---------------------------\n"
+    gradle assemble${BuildTypeProduct}Release
+	gradle assemble${BuildTypeTest}Debug
+
+    echo "\n\n----------------\nUpload Fir?\n1.Yes\n2.No\n----------------\n"
 	read uploadfir
 	while [  $uploadfir != 1 -a $uploadfir != 2  ]
 	do
@@ -73,17 +78,17 @@ if [ $buildProductRelease = 1 ]; then
 	   read uploadfir
 	done
 
-	echo "\n---------------------------\nGenerate Apk Please Wait\n---------------------------\n"
+	if [ $uploadfir = 1 ]; then  
+	   echo "Fir Login" 
+	   fir login ${FirToken}
+	   if [  -f "$Product" ]; then
+	    fir publish $Product
+	   fi
 
-	if [ $uploadfir = 1 ]; then   
-	   gradle publishApk${BuildTypeProduct}Release
-	   gradle publishApk${BuildTypeTest}Debug
+	   if [  -f "$DogFood" ]; then
+	    fir publish $DogFood
+	   fi
 	fi
-
-	if [ $uploadfir = 2 ]; then
-	   gradle assemble${BuildTypeProduct}Release
-	fi
-
 
 	if [  -f "$Product" ]; then
 	 cp $Product $OutPutFile
