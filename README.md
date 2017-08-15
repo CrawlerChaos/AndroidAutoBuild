@@ -12,6 +12,7 @@ gradle自动打包，支持自动上传小米市场，fir。
 
 # FIR配置(可选)
 如需上传fir参照如下配置
+
 https://github.com/FIRHQ/fir-cli/blob/master/README.md
 
 # 运行
